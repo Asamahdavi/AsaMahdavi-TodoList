@@ -17,9 +17,9 @@ function Header() {
     } else setIcon("nav-toggler");
   };
   return (
-    <nav className="nav bg-blue-500 ">
+    <nav className="nav   bg-blue-600  ">
       <h3
-        className=" nav-brand flex justify-start  text-white "
+        className=" nav-brand flex justify-start text-left text-blue-50 "
         // height={90}
         // width={200}
         // // src={logo}
