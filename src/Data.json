@@ -3,19 +3,19 @@
     "id": 1,
     "title": "Give dog a bath",
     "Description": "1 give hvxjvjabckuhbcqbc,ma kjhclwencbwiecbbhjdbjwhebk",
-    "status": "In Progress"
+    "status": "InProgress"
   },
   {
     "id": 2,
     "title": "Do laundry",
     "Description": "2 give hvxjvjabckuhbcqbc,ma kjhclwencbwiecbbhjdbjwhebk",
-    "status": "To Do"
+    "status": "ToDo"
   },
 
   {
     "id": 3,
     "title": "Do laundry2",
     "Description": "3 give hvxjvjabckuhbcqbc,ma kjhclwencbwiecbbhjdbjwhebk",
-    "status": "In QA"
+    "status": "InQA"
   }
 ]

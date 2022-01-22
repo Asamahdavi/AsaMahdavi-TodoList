@@ -1,5 +1,31 @@
-import Status from "./Status";
-export default function TaskCard({ title, prag, status }) {
+import { useState } from "react";
+
+export default function TaskCard({
+  title,
+  prag,
+  status,
+  setTasks,
+  setId,
+  id,
+  tasks,
+}) {
+  const [tsk, setTsk] = useState({ title: title, desc: prag, status: status });
+
+  function handleStatus(e) {
+    setTsk({ ...tsk, status: e.target.value });
+
+    const task = { ...tasks, tsk, status: e.target.value };
+    console.log(e.target.value);
+    for (const t in tasks) {
+      let temp = tasks;
+      temp[t] = task;
+      console.log(temp[t]);
+
+      setTasks(temp);
+      break;
+    }
+    setId(id + 1);
+  }
   return (
     <div className="at-container  w-40">
       <div className=" bg-white at-item max-w-sm w-72 h-4/5   rounded-xl overflow-hidden shadow-lg">
@@ -9,7 +35,33 @@ export default function TaskCard({ title, prag, status }) {
           </div>
           <p className="text-left text-gray-700 h-64 text-base ">{prag}</p>
           <div className="flex justify-between grid-cols-2 p-3">
-            <Status task={status} />
+            <select onChange={handleStatus} value={status}>
+              <option
+                value="Todo"
+                disabled={
+                  tsk.status === "InProgress" ||
+                  tsk.status === "Done" ||
+                  tsk.status === "Deployed"
+                }
+              >
+                Todo
+              </option>
+              <option value="InProgress" disabled={tsk.status !== "Todo"}>
+                InProgress
+              </option>
+              <option value="Blocked" disabled={tsk.status !== "InProgress"}>
+                Blocked
+              </option>
+              <option value="InQA" disabled={tsk.status !== "InProgress"}>
+                InQA
+              </option>
+              <option value="Done" disabled={tsk.status !== "InQA"}>
+                Done
+              </option>
+              <option value="Deployed" disabled={tsk.status !== "Done"}>
+                Deployed
+              </option>
+            </select>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               enableBackground="new 0 0 24 24"
